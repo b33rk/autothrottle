@@ -5,7 +5,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg >/usr/share/keyrings/doc
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/docker.asc] https://download.docker.com/linux/ubuntu focal stable' >/etc/apt/sources.list.d/docker.list
 
 # add Kubernetes repository
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.24/deb/Release.key | gpg --dearmor --batch -o /usr/share/keyrings/kubernetes.asc
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.24/deb/Release.key -o /usr/share/keyrings/kubernetes.asc
 echo 'deb [signed-by=/usr/share/keyrings/kubernetes.asc] https://pkgs.k8s.io/core:/stable:/v1.24/deb/ /' >/etc/apt/sources.list.d/kubernetes.list
 
 # install Docker
