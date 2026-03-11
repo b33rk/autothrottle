@@ -5,8 +5,8 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg >/usr/share/keyrings/doc
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/docker.asc] https://download.docker.com/linux/ubuntu focal stable' >/etc/apt/sources.list.d/docker.list
 
 # add Kubernetes repository
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.24/deb/Release.key -o /usr/share/keyrings/kubernetes.asc
-echo 'deb [signed-by=/usr/share/keyrings/kubernetes.asc] https://pkgs.k8s.io/core:/stable:/v1.24/deb/ /' >/etc/apt/sources.list.d/kubernetes.list
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key -o /usr/share/keyrings/kubernetes.asc
+echo 'deb [signed-by=/usr/share/keyrings/kubernetes.asc] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' >/etc/apt/sources.list.d/kubernetes.list
 
 # install Docker
 apt-get update
@@ -18,7 +18,7 @@ echo '{"exec-opts":["native.cgroupdriver=systemd"],"log-driver":"json-file","log
 systemctl restart docker
 
 # install Kubernetes
-apt-get install -y cri-tools=1.13.0-01 kubeadm=1.24.* kubectl=1.24.* kubelet=1.24.*
+apt-get install -y cri-tools=1.13.0-01 kubeadm=1.28.* kubectl=1.28.* kubelet=1.28.*
 apt-mark hold kubeadm kubectl kubelet
 
 if [ "$1" = master ]; then
