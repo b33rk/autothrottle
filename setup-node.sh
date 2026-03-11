@@ -17,6 +17,12 @@ apt-mark hold docker-ce docker-ce-cli
 echo '{"exec-opts":["native.cgroupdriver=systemd"],"log-driver":"json-file","log-opts":{"max-size":"100m"},"storage-driver":"overlay2"}' >/etc/docker/daemon.json
 systemctl restart docker
 
+# configure containerd for CRI v1 (for kubeadm v1.28)
+mkdir -p /etc/containerd
+containerd config default > /etc/containerd/config.toml
+sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+systemctl restart containerd
+
 # install Kubernetes
 apt-get install -y kubeadm=1.28.* kubectl=1.28.* kubelet=1.28.*
 apt-mark hold kubeadm kubectl kubelet
