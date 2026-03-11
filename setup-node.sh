@@ -10,8 +10,8 @@ echo 'deb [signed-by=/usr/share/keyrings/kubernetes.asc] https://pkgs.k8s.io/cor
 
 # install Docker
 apt-get update
-apt-get install -y containerd.io=1.4.4-1 docker-ce=5:19.03.15~3-0~ubuntu-focal docker-ce-cli=5:19.03.15~3-0~ubuntu-focal
-apt-mark hold containerd.io=1.4.4-1 docker-ce=5:19.03.15~3-0~ubuntu-focal docker-ce-cli=5:19.03.15~3-0~ubuntu-focal
+apt-get install -y containerd.io docker-ce=5:19.03.15~3-0~ubuntu-focal docker-ce-cli=5:19.03.15~3-0~ubuntu-focal
+apt-mark hold docker-ce docker-ce-cli
 
 # setup Docker
 echo '{"exec-opts":["native.cgroupdriver=systemd"],"log-driver":"json-file","log-opts":{"max-size":"100m"},"storage-driver":"overlay2"}' >/etc/docker/daemon.json
