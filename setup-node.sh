@@ -18,7 +18,7 @@ echo '{"exec-opts":["native.cgroupdriver=systemd"],"log-driver":"json-file","log
 systemctl restart docker
 
 # install Kubernetes
-apt-get install -y cri-tools=1.13.0-01 kubeadm=1.28.* kubectl=1.28.* kubelet=1.28.*
+apt-get install -y kubeadm=1.28.* kubectl=1.28.* kubelet=1.28.*
 apt-mark hold kubeadm kubectl kubelet
 
 if [ "$1" = master ]; then
