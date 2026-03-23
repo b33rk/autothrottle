@@ -260,7 +260,7 @@ def application(name, slo, nodes, target1components, deploy, teardown, traces_an
 def social_network():
     def deploy():
         # 3-node version uses 1-3nodes.json and 2-3nodes.json
-        kubectl_apply(['social-network/1-3nodes.json', 'social-network/2-3nodes.json'], 'social-network', 31)
+        kubectl_apply(['social-network/1-3nodes.json', 'social-network/2-3nodes.json'], 'social-network', 30)
         time.sleep(180)
         # populate the database, see section A.7 in the paper
         subprocess.run([sys.executable, 'social-network/src/scripts/setup_social_graph_init_data_sync.py'], check=True)
@@ -272,39 +272,36 @@ def social_network():
         name='social-network',
         slo=0.2,  # see section 5.1 in the paper
         nodes={
-            # autothrottle-2: original nodes 2 + nginx-thrift from node 5
             'autothrottle-2': [
-                'home-timeline-service',
-                'media-filter-service-1',
-                'nginx-thrift',           # originally on autothrottle-5
-            ],
-            # autothrottle-3: original nodes 3 + all of node 4
-            'autothrottle-3': [
-                'media-filter-service-2',
-                'post-storage-service',
-                'compose-post-redis',        # originally on autothrottle-4
+                'compose-post-redis',
                 'compose-post-service',
                 'home-timeline-redis',
-                'media-filter-service-3',
-                'media-service',
-                'post-storage-memcached',
-                'post-storage-mongodb',
+                'home-timeline-service',
+                'media-filter-service-1',
                 'social-graph-mongodb',
                 'social-graph-redis',
                 'social-graph-service',
+                'url-shorten-service',
+                'user-memcached',
+                'user-mongodb',
+                'user-service',
+                'write-home-timeline-service',
+            ],
+            'autothrottle-3': [
+                'media-filter-service-2',
+                'media-service',
+                'nginx-thrift',
+                'post-storage-memcached',
+                'post-storage-mongodb',
+                'post-storage-service',
                 'text-filter-service',
                 'text-service',
                 'unique-id-service',
-                'url-shorten-service',
-                'user-memcached',
                 'user-mention-service',
-                'user-mongodb',
-                'user-service',
                 'user-timeline-mongodb',
                 'user-timeline-redis',
                 'user-timeline-service',
                 'write-home-timeline-rabbitmq',
-                'write-home-timeline-service',
                 'write-user-timeline-rabbitmq',
                 'write-user-timeline-service',
             ],
@@ -312,7 +309,6 @@ def social_network():
         target1components={
             'media-filter-service-1',
             'media-filter-service-2',
-            'media-filter-service-3',
         },
         deploy=deploy,
         teardown=teardown,
