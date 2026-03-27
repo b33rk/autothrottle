@@ -1,0 +1,24 @@
+social-network,diurnal,autothrottle,N/A
+# ^ SLO not met. P99 latency = 1862 ms. SLO = 200 ms. Delete this path to run again: data/social-network/diurnal/autothrottle
+social-network,diurnal,k8s-cpu,N/A
+# ^ SLO not met. P99 latency = 1909 ms. SLO = 200 ms. Delete this path to run again: data/social-network/diurnal/k8s-cpu/0.5
+social-network,diurnal,k8s-cpu-fast,N/A
+# ^ SLO not met. P99 latency = 1883 ms. SLO = 200 ms. Delete this path to run again: data/social-network/diurnal/k8s-cpu-fast/0.5
+social-network,constant,autothrottle,N/A
+# ^ SLO not met. P99 latency = 10023 ms. SLO = 200 ms. Delete this path to run again: data/social-network/500/autothrottle
+social-network,constant,k8s-cpu,N/A
+# ^ SLO not met. P99 latency = 8553 ms. SLO = 200 ms. Delete this path to run again: data/social-network/500/k8s-cpu/0.5
+social-network,constant,k8s-cpu-fast,N/A
+# ^ SLO not met. P99 latency = 6088 ms. SLO = 200 ms. Delete this path to run again: data/social-network/500/k8s-cpu-fast/0.6
+social-network,noisy,autothrottle,N/A
+# ^ SLO not met. P99 latency = 418 ms. SLO = 200 ms. Delete this path to run again: data/social-network/noisy/autothrottle
+social-network,noisy,k8s-cpu,N/A
+# ^ SLO not met. P99 latency = 401 ms. SLO = 200 ms. Delete this path to run again: data/social-network/noisy/k8s-cpu/0.5
+social-network,noisy,k8s-cpu-fast,N/A
+# ^ SLO not met. P99 latency = 380 ms. SLO = 200 ms. Delete this path to run again: data/social-network/noisy/k8s-cpu-fast/0.4
+social-network,bursty,autothrottle,N/A
+# ^ SLO not met. P99 latency = 1581 ms. SLO = 200 ms. Delete this path to run again: data/social-network/bursty/autothrottle
+social-network,bursty,k8s-cpu,N/A
+# ^ SLO not met. P99 latency = 1538 ms. SLO = 200 ms. Delete this path to run again: data/social-network/bursty/k8s-cpu/0.5
+social-network,bursty,k8s-cpu-fast,N/A
+# ^ SLO not met. P99 latency = 1564 ms. SLO = 200 ms. Delete this path to run again: data/social-network/bursty/k8s-cpu-fast/0.4
